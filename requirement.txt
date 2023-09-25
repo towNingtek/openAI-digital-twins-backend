@@ -1,0 +1,4 @@
+Flask
+pygsheets
+python-dotenv
+Flask-CORS
