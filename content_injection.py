@@ -12,7 +12,8 @@ def get_today():
 
 def get_weather(location):
   weather = ""
-  url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314"
+  # url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314"
+  url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314"
   response = requests.get(url)
   if response.status_code == 200:
       data = response.json()

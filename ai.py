@@ -13,11 +13,13 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def chat_to_openai(message_list):
-  completion = openai.ChatCompletion.create(
+  completion = openai.chat.completions.create(
     model="gpt-4",
     messages = message_list)
 
-  return json.dumps(completion.choices[0].message, ensure_ascii=False)
+  print(completion)
+  return completion.choices[0].message.content
+  # return json.dumps(completion.choices[0].message.content, ensure_ascii=False)
 
 def content_injection_farm(name, obj_avatar, message):
   # 今日日期
@@ -27,7 +29,7 @@ def content_injection_farm(name, obj_avatar, message):
   weather = get_weather("南投縣")
   
   # 澆灌紀錄
-  recording = get_record(obj_avatar["recording"], 60)
+  recording = get_record(obj_avatar["recording"], 10)
 
   # 對話
   messages = [
